@@ -33,7 +33,7 @@ export class Sidebar extends React.Component<ISidebarProps> {
       }
       return 'general'
     }
-    return 'general';
+    return '';
   }
 
   @computed

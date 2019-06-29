@@ -1,6 +1,8 @@
 import * as React from 'react';
 import * as s from './Task.module.css';
 import { computed } from 'mobx';
+import { Link } from 'react-router-dom';
+import { observer } from 'mobx-react';
 
 export interface ITask {
   id: number,
@@ -18,7 +20,7 @@ export interface ITask {
 interface ITaskProps {
   data: ITask;
 }
-
+@observer
 export class Task extends React.Component<ITaskProps> {
 
   @computed
@@ -56,15 +58,16 @@ export class Task extends React.Component<ITaskProps> {
           </div>
         </div>
         <div className={s.row}>
-          <p>{this.props.data.description}</p>
+          <pre>{this.props.data.description}</pre>
         </div>
         <div className={s.row}>
           <div className={s.left}>
             {this.answredAction()}
           </div>
           <div className={s.right}>
+            <span>{this.props.data.category}</span>
             <span>{this.props.data.level}</span>
-            <a href="#">Ответы: {this.props.data.countAnswers}</a>
+            <Link to={`/question/${this.props.data.id}`}>Ответы: {this.props.data.countAnswers}</Link>
             <span>Лайков: {this.props.data.rating}</span>
           </div>
         </div>
