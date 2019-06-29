@@ -1,6 +1,6 @@
 import * as React from "react";
 import { observer, Provider } from "mobx-react";
-import createBrowserHistory from "history/createBrowserHistory";
+import {createBrowserHistory} from "history";
 import { RouterStore, syncHistoryWithStore } from "mobx-react-router";
 import { Router as ReactRouter, Route, Switch, Redirect } from "react-router-dom";
 
@@ -18,7 +18,8 @@ class Router extends React.Component {
         <ReactRouter history={this.history}>
           <Layout>
             <Switch location={this.routerStore.location}>
-              <Route exact path="/" component={Tasks} />
+            <Redirect exact path="/" to="/category/" />
+              <Route exact path="/category/:categoryType?" component={Tasks} />
             </Switch>
           </Layout>
         </ReactRouter>

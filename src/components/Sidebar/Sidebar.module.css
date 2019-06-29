@@ -1,0 +1,17 @@
+.root {
+  min-width: 300px;
+}
+
+.item {
+  display: block;
+  padding-left: 15px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  margin-bottom: 5px;
+  background-color: rgb(233, 233, 233);
+  cursor: pointer;
+}
+
+.active {
+  font-weight: bold;
+}

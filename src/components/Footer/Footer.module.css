@@ -1,0 +1,9 @@
+.root {
+  width: 100%;
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: auto;
+  display: flex;
+  justify-content: space-between;
+}
