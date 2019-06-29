@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as s from './Sidebar.module.css';
-import { Sections } from '../../const/Sidebar';
+import { Category } from '../../const/Category';
 import { observer, inject } from "mobx-react";
 import {action, computed} from 'mobx';
 import {Link} from 'react-router-dom'
@@ -47,7 +47,7 @@ export class Sidebar extends React.Component<ISidebarProps> {
   } 
 
   items = () => (
-    Object.entries(Sections).map(([key, value]) => (
+    Object.entries(Category).map(([key, value]) => (
       <div key={key} onClick={this.changeCategory}>
         <Link className={this.getClassName(key)} to={this.categoryPath(key)}>
           {value}
