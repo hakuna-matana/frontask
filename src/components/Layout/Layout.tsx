@@ -5,7 +5,7 @@ export class Layout extends React.Component {
         return(
             <div className="root">
                 <header>шапка</header>
-                <main>содержимое</main>
+                <main>{this.props.children}</main>
                 <footer>подвал</footer>
             </div>
         )
