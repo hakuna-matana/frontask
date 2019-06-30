@@ -1,11 +1,6 @@
 import * as React from 'react';
 import * as s from './Answers.module.css';
-import { computed } from 'mobx';
-import { inject, observer } from 'mobx-react';
-import { RouterStore } from 'mobx-react-router';
-import { Task } from '../Task/Task';
-import { GeneralTasks } from '../../const/TasksTestJson';
-import { AnswersTestJson } from '../../const/AnswersTestJson';
+import {observer } from 'mobx-react';
 
 export interface IAnswer {
   id: number;
@@ -39,7 +34,7 @@ export class Answers extends React.Component<IAnswersProps> {
 
   renderAnswer = (data: IAnswer[]) => {
     return data.map((item) => (
-      <div className={s.block}>
+      <div className={s.block} key={item.id}>
         <div className={s.answer}>
           <div className={s.row}>
             {item.author}
