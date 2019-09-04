@@ -40,8 +40,20 @@
   width: 200px;
   padding-top: 56px;
 }
+
 @media(min-width: 600px) {
   .drawerPaper {
     padding-top: 64px;
+  }
+}
+
+@media(max-width: 600px) {
+  .drawer {
+    width: 100%;
+    flex-direction: column;
+  }
+  .drawer .drawerPaper {
+    width: 100%;
+    position: static;
   }
 }

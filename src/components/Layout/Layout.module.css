@@ -28,3 +28,14 @@
     padding-top: 64px;
   }
 }
+
+@media(max-width: 600px) {
+  .root {
+    flex-direction: column;
+  }
+  .content {
+    width: 100%;
+    max-width: 100%;
+    padding-top: 0;
+  }
+}
