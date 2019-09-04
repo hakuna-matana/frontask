@@ -5,7 +5,7 @@ import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
 import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
-import IconButton from '@material-ui/core/IconButton';
+// import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 
 
@@ -38,6 +38,10 @@ export class Answer extends React.Component<IAnswerProps> {
     }
     return newDate.toLocaleString();
   }
+
+  /**
+   * Перенести время ответа в Header, рядом с именем
+   */
 
   render() {
     return (

@@ -10,6 +10,7 @@
 
 .card {
   margin: 10px;
+  margin-bottom: 15px;
 }
 
 .card .cardContent {
@@ -34,6 +35,11 @@
   border-radius: 16px;
 }
 
+.tagBlue {
+  color: #fff;
+  background-color: #1976d2;
+}
+
 .link {
   text-decoration: none;
   color: inherit;
@@ -50,4 +56,29 @@
   color: inherit;
   text-decoration: none;
   font-size: 16px;
+}
+
+.rightGroup {
+  margin-left: auto;
+}
+
+.colorRed {
+  color: #bf6e6e;
+}
+
+.colorGreen {
+  color: #6ebf83;
+}
+
+.ratingCount {
+  color: rgba(35, 35, 35, 0.87);
+  font-weight: 500;
+}
+
+.iconDown {
+  margin-bottom: 1px;
+}
+
+.iconUp {
+  margin-top: 1px;
 }

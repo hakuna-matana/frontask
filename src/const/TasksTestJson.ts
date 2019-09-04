@@ -14,6 +14,7 @@ export const GeneralTasks: ITask[] = [
     rating: 0,
     answeredAt: 1561815268,
     createDate: 1561815268,
+    selfRating: 1
   },{
     id: 2,
     title: 'Посчитай количество слов',
@@ -25,6 +26,7 @@ export const GeneralTasks: ITask[] = [
     level: 'junior',
     rating: 2,
     createDate: 1561815268,
+    selfRating: 0
   },{
     id: 3,
     title: 'Какого цвета будет текст',
@@ -40,8 +42,9 @@ export const GeneralTasks: ITask[] = [
     countAnswers: 1,
     category: ['css', 'html'],
     level: 'junior',
-    rating: 0,
+    rating: -2,
     createDate: 1561815268,
+    selfRating: -1
   },{
     id: 4,
     title: 'Отсортировать массив',
@@ -54,6 +57,7 @@ export const GeneralTasks: ITask[] = [
     rating: 0,
     answeredAt: 1561815268,
     createDate: 1561815268,
+    selfRating: 0
   },{
     id: 5,
     title: 'Создать глубокий клон объекта',
@@ -65,6 +69,7 @@ export const GeneralTasks: ITask[] = [
     level: 'middle',
     rating: 0,
     createDate: 1561815268,
+    selfRating: 0
   }
 ]
 
@@ -81,6 +86,7 @@ const JavaScriptTasks: ITask[] = [
     rating: 0,
     answeredAt: 1561815268,
     createDate: 1561815268,
+    selfRating: 0
   },{
     id: 2,
     title: 'Посчитай количество слов',
@@ -92,6 +98,7 @@ const JavaScriptTasks: ITask[] = [
     level: 'junior',
     rating: 2,
     createDate: 1561815268,
+    selfRating: 0
   },{
     id: 5,
     title: 'Создать глубокий клон объекта',
@@ -103,6 +110,7 @@ const JavaScriptTasks: ITask[] = [
     level: 'middle',
     rating: 0,
     createDate: 1561815268,
+    selfRating: 0
   }
 ]
 
