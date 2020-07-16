@@ -1,0 +1,23 @@
+.root {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.authBlock {
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.authBlock .title {
+  text-align: center;
+  /*margin: 0 1em;*/
+}
+.authBlock .margin {
+  margin: 1em;
+}
+
+.link {
+  font-size: .8em;
+}

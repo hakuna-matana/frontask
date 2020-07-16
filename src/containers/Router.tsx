@@ -7,6 +7,7 @@ import { Router as ReactRouter, Route, Switch, Redirect } from "react-router-dom
 import { Layout } from '../components/Layout/Layout';
 import { Tasks } from '../components/Tasks/Tasks';
 import { Question } from "../components/Question/Question";
+import { LoginPage } from "../components/LoginPage/LoginPage";
 
 @observer
 class Router extends React.Component {
@@ -19,9 +20,10 @@ class Router extends React.Component {
         <ReactRouter history={this.history}>
           <Layout>
             <Switch location={this.routerStore.location}>
-            <Redirect exact path="/" to="/category/" />
+              <Redirect exact path="/" to="/category/" />
               <Route exact path="/category/:categoryType?" component={Tasks} />
               <Route exact path="/question/:questionsId" component={Question} />
+              <Route exact path="/login" component={LoginPage} />
             </Switch>
           </Layout>
         </ReactRouter>

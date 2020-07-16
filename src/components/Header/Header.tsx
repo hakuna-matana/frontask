@@ -5,8 +5,15 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
+import {inject} from "mobx-react";
+import {RouterStore} from "mobx-react-router";
 
-export class Header extends React.Component {
+export interface HeaderProps {
+  routerStore?: RouterStore;
+}
+
+@inject('routerStore')
+export class Header extends React.Component<HeaderProps> {
 
   render() {
     return (
@@ -18,7 +25,11 @@ export class Header extends React.Component {
           <Typography variant="h6" className={s.title}>
             <Link className={s.logo} to="/">Frontask</Link>
           </Typography>
-          <Button color="inherit">Login</Button>
+          <Button color="inherit">
+            <Link to={"/login"} className={s.login}>
+              Login
+            </Link>
+          </Button>
         </Toolbar>
       </AppBar>
     )

@@ -12,7 +12,7 @@
   flex-grow: 1;
 }
 
-.logo {
+.logo, .login {
   color: #fff;
   text-decoration: none;
 }
