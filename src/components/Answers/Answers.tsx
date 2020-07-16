@@ -1,21 +1,13 @@
 import * as React from 'react';
 import * as s from './Answers.module.css';
-import { computed } from 'mobx';
-import { inject, observer } from 'mobx-react';
-import { RouterStore } from 'mobx-react-router';
-import { Task } from '../Task/Task';
-import { GeneralTasks } from '../../const/TasksTestJson';
-import { AnswersTestJson } from '../../const/AnswersTestJson';
-
-export interface IAnswer {
-  id: number;
-  text: string; 
-  author: string; 
-  autorId: number; 
-  datetime: number;
-  rating: number;
-  comments: IAnswer[];
-}
+import {observer } from 'mobx-react';
+// import Card from '@material-ui/core/Card';
+// import CardHeader from '@material-ui/core/CardHeader';
+// import CardContent from '@material-ui/core/CardContent';
+// import CardActions from '@material-ui/core/CardActions';
+// import IconButton from '@material-ui/core/IconButton';
+// import Typography from '@material-ui/core/Typography';
+import { IAnswer, Answer } from '../Answer/Answer';
 
 interface IAnswersProps {
   // routerStore?: RouterStore;
@@ -26,40 +18,27 @@ interface IAnswersProps {
 @observer
 export class Answers extends React.Component<IAnswersProps> {
 
-  datetime = (date: number): string | null => {
-    if (!date) return null;
-    let newDate: Date;
-    try {
-      newDate = new Date(date * 1000);
-    } catch (e) {
-      return null;
-    }
-    return newDate.toLocaleString();
-  }
+  /**
+   * Обернуть ответы и ветку комментариев в "аккордеон", чтобы можно 
+   * было свернуть/развернуть всю ветку
+   */
 
   renderAnswer = (data: IAnswer[]) => {
     return data.map((item) => (
-      <div className={s.block}>
-        <div className={s.answer}>
-          <div className={s.row}>
-            {item.author}
-          </div>
-          <div className={s.row}>
-            <pre>{item.text}</pre>
-          </div>
-          <div className={s.row}>
-            <div className={s.left}>{this.datetime(item.datetime)}</div>
-            <div className={s.right}>{item.rating}</div>
-          </div>
+      <div className={s.block} key={item.id}>
+        <Answer data={item} />
+        {item.comments ? (
+        <div className={s.comments}>
+          {this.renderAnswer(item.comments)}
         </div>
-        {item.comments ? <div className={s.comment}>{this.renderAnswer(item.comments)}</div>: null}
+        ): null}
       </div>
     ))
   }
 
   render() {
     return (
-      <div>
+      <div className={s.root}>
         {this.renderAnswer(this.props.data)}
       </div>
     )

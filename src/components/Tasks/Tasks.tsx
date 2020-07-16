@@ -34,7 +34,6 @@ export class Tasks extends React.Component<ITasksProps> {
   render() {
     return (
       <div className={s.root}>
-        Список вопросов:
         {this.taskList()}
       </div>
     )

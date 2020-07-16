@@ -40,7 +40,6 @@ export class Question extends React.Component<IQuestionProps> {
   render() {
     return(
       <div className={s.root}>
-        ответы на вопрос №{this.questionId}
         {this.questionData ? <Task data={this.questionData}/> : null}
         {this.answersRender()}
       </div>

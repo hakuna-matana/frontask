@@ -1,8 +1,22 @@
 .root {
-  width: 100%;
+  flex-grow: 1;
+  /* width: 100%;
   max-width: 1280px;
   margin-left: auto;
   margin-right: auto;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-between; */
+}
+
+.title {
+  flex-grow: 1;
+}
+
+.logo {
+  color: #fff;
+  text-decoration: none;
+}
+
+.appBar {
+  z-index: 1300 !important;
 }
