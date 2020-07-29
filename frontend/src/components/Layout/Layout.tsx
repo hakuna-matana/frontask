@@ -14,7 +14,6 @@ export interface LayoutProps {
 @inject('routerStore')
 @observer
 export class Layout extends React.Component<LayoutProps> {
-
   @computed
   get showSidebar() {
     return !/^\/login/.test(this.props.routerStore!.location.pathname)

@@ -1,0 +1,19 @@
+{
+  "name": "frontask_backend",
+  "version": "1.0.0",
+  "description": "nodejs server",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index",
+    "dev": "nodemon index"
+  },
+  "repository": "https://github.com/nastyarisa/frontask.git",
+  "author": "Nastya_Risa",
+  "license": "MIT",
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}

@@ -7,6 +7,11 @@ export class TaskService {
   constructor(props:TaskServiceProps) {
     this.props = props;
   }
+
+  getCategories = async () => {
+    let res = await fetch('/categories')
+    console.log('res', res)
+  }
   // todo: получение списка категорий
   // todo: получение списка задач (с указанным количеством и пагинацией)
   // todo: получение ответов к задаче

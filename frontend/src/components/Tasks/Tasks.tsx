@@ -5,12 +5,18 @@ import { Task } from '../Task/Task';
 import { computed } from 'mobx';
 import { observer, inject } from 'mobx-react';
 import { RouterStore } from 'mobx-react-router';
+import {TaskService} from "../../api/TaskService";
 interface ITasksProps {
   routerStore?: RouterStore;
+  taskService: TaskService;
 }
-@inject('routerStore')
+@inject('routerStore', 'taskService')
 @observer
 export class Tasks extends React.Component<ITasksProps> {
+
+  componentDidMount(): void {
+    this.props.taskService.getCategories()
+  }
 
   @computed
   get category() {
