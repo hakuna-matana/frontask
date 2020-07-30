@@ -19,11 +19,11 @@ export class TaskService {
     }
   }
 
+  // получение списка категорий
   getCategories = async () => {
-    let res = await this.GET('/categories');
-    console.log('res', res)
+    return this.GET('/categories');
   }
-  // todo: получение списка категорий
+
   // todo: получение списка задач (с указанным количеством и пагинацией)
   // todo: получение ответов к задаче
   // todo: создание задачи

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as s from './Task.module.css';
 import { Link } from 'react-router-dom';
-import { observer } from 'mobx-react';
+import {inject, observer} from 'mobx-react';
 
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
@@ -11,9 +11,9 @@ import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import ThumbDown from '@material-ui/icons/ThumbDown';
 import ThumbUp from '@material-ui/icons/ThumbUp';
-import { Category } from '../../const/Category';
 import Button from '@material-ui/core/Button';
 import { TaskStore } from './TaskStore';
+import {CategoryStore} from "../../store/CategoryStore";
 
 export interface ITask {
   id?: number,
@@ -32,7 +32,9 @@ export interface ITask {
 
 interface ITaskProps {
   data: ITask;
+  categoryStore?: CategoryStore;
 }
+@inject("categoryStore")
 @observer
 export class Task extends React.Component<ITaskProps> {
   store = new TaskStore({
@@ -51,11 +53,12 @@ export class Task extends React.Component<ITaskProps> {
   }
 
   tags = () => {
+    let categories = this.props.categoryStore!.categories || new Map();
     if (!this.props.data.category) return null;
     return this.props.data.category.map((item: string) => (
       <div key={item}>
         <Link className={s.tag} to={`/category/${item}/`}>
-          {Category.get(item)}
+          {categories.get(item)}
         </Link>
       </div>
     ))

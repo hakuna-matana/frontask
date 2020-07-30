@@ -1,6 +1,5 @@
 import * as React from 'react';
 import * as s from './Sidebar.module.css';
-import { Category } from '../../const/Category';
 import { observer, inject } from "mobx-react";
 import { computed } from 'mobx';
 import { Link } from 'react-router-dom'
@@ -8,13 +7,15 @@ import { RouterStore } from 'mobx-react-router';
 import Drawer from '@material-ui/core/Drawer';
 import Divider from '@material-ui/core/Divider';
 import List from '@material-ui/core/List';
+import {CategoryStore} from "../../store/CategoryStore";
 
 
 interface ISidebarProps {
   routerStore?: RouterStore;
+  categoryStore?: CategoryStore;
 }
 
-@inject('routerStore')
+@inject('routerStore', "categoryStore")
 @observer
 export class Sidebar extends React.Component<ISidebarProps> {
 
@@ -45,15 +46,16 @@ export class Sidebar extends React.Component<ISidebarProps> {
     return `/category/${key}`
   }
 
-  items = () => (
-    Array.from(Category.entries()).map(([key, value]) => (
+  items = () => {
+    let categories = this.props.categoryStore!.categoryList || [];
+    return categories.map(([key, value]) => (
       <div key={key}>
         <Link className={this.getClassName(key)} to={this.categoryPath(key)}>
           {value}
         </Link>
       </div>
     ))
-  )
+  }
 
   render() {
     return (
