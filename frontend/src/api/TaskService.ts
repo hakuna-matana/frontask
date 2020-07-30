@@ -24,7 +24,14 @@ export class TaskService {
     return this.GET('/categories');
   }
 
-  // todo: получение списка задач (с указанным количеством и пагинацией)
+  // получение списка задач (с указанным количеством и пагинацией)
+  getTasks = async () => {
+    return this.GET('/tasks');
+  }
+  // получение задачи по id
+  getTaskById = async (id: string) => {
+    return this.GET(`/tasks/${id}`);
+  }
   // todo: получение ответов к задаче
   // todo: создание задачи
   // todo: ответ на задачу
