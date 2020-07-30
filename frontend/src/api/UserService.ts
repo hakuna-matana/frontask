@@ -1,5 +1,5 @@
 export interface UserServiceProps {
-  ajax: any;
+  // ajax: any;
 }
 
 export class UserService {

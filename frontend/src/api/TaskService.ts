@@ -1,5 +1,7 @@
+import {ajax} from "./ajax";
+
 export interface TaskServiceProps {
-  ajax: any;
+  // userService: any;
 }
 
 export class TaskService {
@@ -8,8 +10,17 @@ export class TaskService {
     this.props = props;
   }
 
+  GET = async (url:string) => {
+    try {
+      let res = await ajax({url});
+      return res;
+    } catch (e) {
+      throw new Error(e.message)
+    }
+  }
+
   getCategories = async () => {
-    let res = await fetch('/categories')
+    let res = await this.GET('/categories');
     console.log('res', res)
   }
   // todo: получение списка категорий
