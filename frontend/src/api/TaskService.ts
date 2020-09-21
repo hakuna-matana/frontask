@@ -25,8 +25,8 @@ export class TaskService {
   }
 
   // получение списка задач (с указанным количеством и пагинацией)
-  getTasks = async () => {
-    return this.GET('/tasks');
+  getTasks = async (category?: string) => {
+    return this.GET(`/tasks?category=${category}`);
   }
   // получение задачи по id
   getTaskById = async (id: string) => {

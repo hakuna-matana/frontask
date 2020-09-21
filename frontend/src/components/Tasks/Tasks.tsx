@@ -13,6 +13,12 @@ interface ITasksProps {
 @inject('routerStore', 'taskService')
 @observer
 export class Tasks extends React.Component<ITasksProps> {
+
+  componentDidMount(): void {
+    this.props.taskService.getTasks(this.category);
+  }
+
+
   @computed
   get category() {
       let m = this.props.routerStore!.location.pathname.match(/category\/(\w+)/);
